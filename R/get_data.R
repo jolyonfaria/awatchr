@@ -4,5 +4,5 @@
 #'
 #' @param x Data file
 #'
-#'\code{get_data_from_export}
+#' @export
 get_data_from_export <- function(x) {}

@@ -7,9 +7,7 @@
 get_data_from_export(x)
 }
 \arguments{
-\item{x}{Data file
-
-\code{get_data_from_export}}
+\item{x}{Data file}
 }
 \description{
 Get data from export file downloaded from Apple Watch.
