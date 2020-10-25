@@ -2,26 +2,39 @@
 title: "Explore data"
 author: "Jolyon Faria"
 date: "25/10/2020"
-output: html_notebook
+output:
+  html_document:
+    df_print: paged
 ---
 
-```{r, include=FALSE}
+```{r setup, include=FALSE}
 
 knitr::opts_chunk$set(echo = FALSE, include = FALSE)
+knitr::opts_knit$set(root.dir = normalizePath(".."))
 
 ```
 
 ```{r}
 
 # Packages
+library(awatchr)
+library(here)
+library(magrittr)
+library(dplyr)
+library(ggplot2)
+library(lubridate)
+library(xml2)
 
 # Config
+stopifnot(file.exists(here(watch_export_file)))
 
 ```
 
 ```{r}
 
 # Get data
+records <- read_xml(watch_export_file) %>%
+  xml_children
 
 ```
 
@@ -36,6 +49,8 @@ knitr::opts_chunk$set(echo = FALSE, include = FALSE)
 # Plot maps
 
 ```
+
+\newpage
 
 # Appendix
 
