@@ -1,0 +1,46 @@
+---
+title: "Explore data"
+author: "Jolyon Faria"
+date: "25/10/2020"
+output: html_notebook
+---
+
+```{r, include=FALSE}
+
+knitr::opts_chunk$set(echo = FALSE, include = FALSE)
+
+```
+
+```{r}
+
+# Packages
+
+# Config
+
+```
+
+```{r}
+
+# Get data
+
+```
+
+```{r}
+
+# Prepare data
+
+```
+
+```{r}
+
+# Plot maps
+
+```
+
+# Appendix
+
+```{r}
+
+sessionInfo()
+
+```
