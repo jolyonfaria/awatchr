@@ -1,3 +1,7 @@
+<!-- badges: start -->
+[![Travis build status](https://travis-ci.com/jolyonfaria/awatchr.svg?branch=master)](https://travis-ci.com/jolyonfaria/awatchr)
+<!-- badges: end -->
+
 # awatchr
 
 A set of visualisations from data from an Apple Watch.
