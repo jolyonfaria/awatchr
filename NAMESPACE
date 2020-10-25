@@ -3,5 +3,6 @@
 export(apple_health_export_dir)
 export(data_dir)
 export(get_data_from_export)
+export(get_heart_rate)
 export(heart_rate_file)
 export(watch_export_file)

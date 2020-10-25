@@ -1,0 +1,57 @@
+---
+title: "Plot heart rate"
+output: html_notebook
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = FALSE, include = FALSE, warning = FALSE)
+
+```
+
+```{r}
+
+# Packages
+library(awatchr)
+
+# Configuration
+focus_date <- "2020-09-23"
+
+# Checks
+stopifnot(file.exists(heart_rate_file))
+
+```
+
+```{r}
+
+# Load data
+heart_rate_df <- readRDS(heart_rate_file) %>%
+  mutate(date_only = format(date, "%Y-%m-%d"))
+
+```
+
+# Plot heart rate
+
+```{r, include=TRUE}
+
+# Make heart rate plot
+heart_rate_df <- heart_rate_df %>%
+  filter(date_only == focus_date)
+
+g <- ggplot(heart_rate_df, aes(x=date, y=heart_rate)) +
+  geom_line() +
+  theme_bw() +
+  labs(x="", y="Heart rate (bpm)")
+g
+
+```
+
+\newpage
+
+# Appendix
+
+```{r, include=TRUE}
+
+sessionInfo()
+
+```

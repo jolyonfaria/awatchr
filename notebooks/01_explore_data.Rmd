@@ -24,7 +24,7 @@ library(pander)
 library(xml2)
 
 # Config
-stopifnot(file.exists(here(watch_export_file)))
+stopifnot(file.exists(watch_export_file))
 
 ```
 
@@ -35,6 +35,8 @@ records <- read_xml(watch_export_file) %>%
   xml_children
 
 ```
+
+# Data record types
 
 ```{r, include=TRUE}
 
@@ -49,6 +51,8 @@ record_types %>%
   pander
 
 ```
+
+# Heart rate data
 
 ```{r, include = TRUE}
 
@@ -67,7 +71,7 @@ saveRDS(heart_rate_df, file = heart_rate_file)
 
 # Appendix
 
-```{r}
+```{r, include = TRUE}
 
 sessionInfo()
 
