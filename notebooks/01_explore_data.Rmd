@@ -2,15 +2,12 @@
 title: "Explore data"
 author: "Jolyon Faria"
 date: "25/10/2020"
-output:
-  html_document:
-    df_print: paged
+output: html_notebook
 ---
 
 ```{r setup, include=FALSE}
 
-knitr::opts_chunk$set(echo = FALSE, include = FALSE)
-knitr::opts_knit$set(root.dir = normalizePath(".."))
+knitr::opts_chunk$set(echo = FALSE, include = FALSE, warning = FALSE)
 
 ```
 
@@ -23,6 +20,7 @@ library(magrittr)
 library(dplyr)
 library(ggplot2)
 library(lubridate)
+library(pander)
 library(xml2)
 
 # Config
@@ -38,15 +36,30 @@ records <- read_xml(watch_export_file) %>%
 
 ```
 
-```{r}
+```{r, include=TRUE}
 
-# Prepare data
+# Get record types
+record_types <- xml_attr(records, "type")
+record_types %>%
+  table(dnn="Record_type") %>%
+  as.data.frame %>%
+  arrange(desc(Freq)) %>%
+  mutate(Count = prettyNum(Freq, big.mark=",")) %>%
+  select(-Freq) %>%
+  pander
 
 ```
 
-```{r}
+```{r, include = TRUE}
 
-# Plot maps
+heart_rate_records <- records[which(record_types == "HKQuantityTypeIdentifierHeartRate")]
+
+heart_rate_df <- data_frame(
+  date = as.POSIXct(xml_attr(heart_rate_records, "endDate")),
+  heart_rate = as.integer(xml_attr(heart_rate_records, "value"))
+)
+head(heart_rate_df)
+saveRDS(heart_rate_df, file = heart_rate_file)
 
 ```
 
