@@ -1,5 +1,6 @@
 ^awatchr\.Rproj$
 ^\.Rproj\.user$
 ^LICENSE\.md$
+^data
 ^notebooks
 ^\.travis\.yml$
